@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './header.module.scss'
 import {Link ,NavLink} from "react-router-dom"
+import {FaShoppingCart} from 'react-icons/fa'
+import {HiOutlineMenuAlt3} from 'react-icons/hi'
+import {FaTimes} from 'react-icons/fa'
+
 const logo =  (
   <div className={styles.logo}>
     <Link to='/'>
@@ -12,14 +16,43 @@ const logo =  (
   const activeLink = ({isActive})=> (isActive ? `${styles.active}` : "")
 
 const Header = () => {
+  const [showMenu ,setShowMenu] = useState(false)
+
+  const toggleMenu = () =>{
+    setShowMenu(true)
+  }
+  const hideMenu = () =>{
+    setShowMenu(false)
+  }
+
+  const cart = (
+    <span className={styles.cart}>
+      <Link to='/cart'>
+          Cart
+          <FaShoppingCart size={20}/>
+          <p>0</p>
+      </Link>
+    </span>
+  )
   return (
     <header>
     <div className={styles.header}>{logo}
-      <nav>
+    <nav className={showMenu ? `${styles['show-nav']}` : `${styles['hide-nav']}` }>
+
+      <div className={showMenu ? `${styles['nav-wrapper']} ${styles['show-nav-wrapper']}` : `${styles['nav-wrapper']}` }
+      onClick={hideMenu}
+      ></div>
+
       <ul>
-      <li>
-        <NavLink to='/shop' className={activeLink}>Shop</NavLink>
-      </li>
+        <li className={styles['logo-mobile']}>
+          {logo}
+          <FaTimes size ={22} color ='#fff' onClick={hideMenu}/>
+        </li>
+
+        <li>
+          <NavLink to='/shop' className={activeLink}>Shop</NavLink>
+        </li>
+
       </ul>
       <div className={styles["header-right"]}>
         <span className={styles.links}>
@@ -33,9 +66,14 @@ const Header = () => {
             My Order
           </NavLink>
         </span>
+        {cart}
       </div>
-      </nav>
+    </nav>
+    <div className={styles['menu-icon']}>
+      {cart}
+      <HiOutlineMenuAlt3 size= {28} onClick={toggleMenu}/>
     </div>
+  </div>
     </header>
   )
 }
