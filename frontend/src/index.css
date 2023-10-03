@@ -274,10 +274,10 @@ p {
 .--btn {
   font-size: 1.6rem;
   font-weight: 400;
-  padding: 6px 8px;
+  padding: 8px 10px;
   margin: 0 5px 0 0;
   border: 1px solid transparent;
-  border-radius: 3px;
+  border-radius: 16px;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -299,7 +299,8 @@ p {
 
 .--btn-primary {
   color: #fff;
-  background: #007bff;
+  /* background: #007bff; */
+  background: #0a1930;
 }
 .--btn-secondary {
   color: #fff;
