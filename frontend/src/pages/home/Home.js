@@ -2,6 +2,11 @@ import React from 'react'
 import Slider from '../../components/slider/Slider'
 import HomeInfoBox from './HomeInfoBox'
 import './home.scss'
+import { productData } from '../../components/carusel/data'
+import CarouselItem from '../../components/carusel/CarouselItem';
+import ProductCarousels from '../../components/carusel/Carousel';
+import ProductCategory from './ProductCategory';
+import FooterLinks from '../../components/footer/FooterLinks';
 
 const PageHeading = ({heading, btnText}) => {
   return (
@@ -16,6 +21,16 @@ const PageHeading = ({heading, btnText}) => {
 }
 
 const Home = () => {
+  const productss = productData.map((item) => (
+    <div key={item.id}>
+      <CarouselItem 
+      name={item.name}
+      url = {item.imageurl}
+      price = {item.price}
+      description={item.description}
+      />
+    </div>
+  ))
 
   return (
    <>
@@ -24,8 +39,27 @@ const Home = () => {
       <div className="container">
         <HomeInfoBox/>
         <PageHeading heading={'Latest Products'} btnText={'Shop Now>>>'}/>
+        <ProductCarousels products ={productss}/>
       </div>
     </section>
+
+    <section className='--bg-grey'>
+      <div className="container">
+        <h3>Categories</h3>
+        <ProductCategory/>
+      </div>
+    </section>
+
+    <section>
+      <div className="container">
+     
+        <PageHeading heading={'Mobile Phones'} btnText={'Shop Now>>>'}/>
+        <ProductCarousels products ={productss}/>
+      </div>
+    </section>
+    <FooterLinks/>
+
+    
    </>
   )
 }
