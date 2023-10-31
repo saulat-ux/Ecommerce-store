@@ -6,7 +6,7 @@ import { productData } from '../../components/carusel/data'
 import CarouselItem from '../../components/carusel/CarouselItem';
 import ProductCarousels from '../../components/carusel/Carousel';
 import ProductCategory from './ProductCategory';
-import FooterLinks from '../../components/footer/FooterLinks';
+
 
 const PageHeading = ({heading, btnText}) => {
   return (
@@ -57,7 +57,7 @@ const Home = () => {
         <ProductCarousels products ={productss}/>
       </div>
     </section>
-    <FooterLinks/>
+    
 
     
    </>
