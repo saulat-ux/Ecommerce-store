@@ -1,17 +1,45 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './auth.module.scss'
 import loginImg from "../../assets/login.png"
 import Card from '../../components/card/Card';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
+import Loader from '../../components/loader/Loader';
+import { RESET_AUTH, login } from '../../redux/features/auth/authSlice';
 
 const Login = () => {
+    const dispatch = useDispatch()
     const [email, setEmail] = useState("");
     const [password , setPassword] = useState("")
+    const {isLoading, isLoggedIn , isSuccess} = useSelector((state) => state.auth)
+   const navigate = useNavigate();
 
-    const submitUser = () => {
+    const loginUser = async (e) => {
+        e.preventDefault()
+       if(!email || !password){
+        return toast.error("all fields are required")
+       }
+
+       const userData = {
+        email,
+        password,
+       }
+       
+
+       await dispatch(login(userData))
 
     }
+    useEffect(() => {
+        if(isSuccess && isLoggedIn) {
+            navigate("/")
+        }
+        dispatch(RESET_AUTH())
+    },[isSuccess, isLoggedIn, dispatch, navigate])
+
   return (
+    <>
+    {isLoading && <Loader/>}
         <section className={`container ${styles.auth}`}>
             <div className={styles.img}>
                 <img src={loginImg} alt="login" width={600} />
@@ -19,7 +47,7 @@ const Login = () => {
             <Card>
                 <div className={styles.form}>
                     <h2>Login</h2>
-                    <form onSubmit={submitUser}>
+                    <form onSubmit={loginUser}>
          
                     <input type="text"
                         placeholder='Email'
@@ -42,14 +70,15 @@ const Login = () => {
                     <br />
                     <span>
                         <h4> Test Account</h4>
-                    <p>User: testuser</p>
-                    <p>Password: test@1234</p>
+                    <p>User: testuser@gmail.com</p>
+                    <p>Password: test1234</p>
                     </span>
                 </div>
 
             </Card>
 
         </section>
+        </>
     );
 }
 
