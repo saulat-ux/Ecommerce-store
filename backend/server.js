@@ -5,6 +5,8 @@ const mongoose = require("mongoose");
 const cors =require("cors");
 const cookieParser = require("cookie-parser");
 const userRoute = require("./routes/userRoutes");
+const productRouter = require("./routes/productRoutes");
+
 const errorHandler = require("./middleware/errorMiddleware");
 
 
@@ -24,6 +26,8 @@ app.use(
 
 // router
 app.use("/api/v1/users", userRoute )
+app.use("/api/v1/products", productRouter )
+
 
 app.get("/", (req,res) => {
     res.send("home page..")
