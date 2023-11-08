@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './header.module.scss';
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FaShoppingCart } from 'react-icons/fa';
@@ -7,6 +7,8 @@ import { FaTimes } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { RESET_AUTH, logout } from '../../redux/features/auth/authSlice';
 import ShowOnLogin, { ShowOnLogout } from '../hiddenLink/hiddenLink';
+import { API_URL } from '../../redux/features/cart/cartService';
+import axios from 'axios';
 
 const logo = (
   <div className={styles.logo}>
@@ -19,6 +21,25 @@ const logo = (
 const activeLink = ({ isActive }) => (isActive ? `${styles.active}` : "");
 
 const Header = () => {
+
+// getting cart data
+  const [cartData, setCartData] = useState([])
+
+
+  useEffect(() => {
+    const fetchData = async() => {
+      const res = await axios.get(API_URL)
+      console.log(res.data)
+      const data= res.data
+      
+      setCartData(data)
+    
+  }
+  fetchData();
+},[])
+
+      const len = cartData.length
+
   const [showMenu, setShowMenu] = useState(false);
   const [scrollPage, setScrollPage] = useState(false);
   const dispatch = useDispatch()
@@ -53,7 +74,7 @@ const Header = () => {
       <Link to='/cart'>
         Cart
         <FaShoppingCart size={20} />
-        <p>0</p>
+        <p>{len}</p>
       </Link>
     </span>
   );

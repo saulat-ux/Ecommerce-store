@@ -1,0 +1,29 @@
+import axios from "axios";
+
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
+export const API_URL = `${BACKEND_URL}/api/v1/cart/`;
+
+console.log(API_URL)
+
+// send product to backend
+const  sendProductToCart = async (cartData) => {
+  const response = await axios.post(API_URL, cartData)
+ return response.data
+
+}
+
+// send single product to backend
+// const  sendSingeProduct = async () => {
+//   const response = await axios.get(API_URL)
+//   return response.data
+// }
+
+const cartService = {
+    sendProductToCart,
+  
+    
+}
+
+export default cartService

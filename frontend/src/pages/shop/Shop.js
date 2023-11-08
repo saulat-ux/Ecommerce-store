@@ -3,12 +3,13 @@ import styles from "./shop.module.scss"
 import axios from 'axios';
 import { API_URL } from '../../redux/features/prod/productService';
 import CarouselItem from '../../components/carusel/CarouselItem';
+import ShopItems from '../../components/shop/ShopItems';
 import SearchBar from '../../components/SearchBar';
+import Loader from '../../components/loader/Loader';
 
 
 const Shop = () => {
-  
-
+  const [isLoading, setIsloading] = useState(true)
     const [productData, setProductData] = useState([])
     const [searchTerm, setSearchTerm] = useState('');
 
@@ -17,7 +18,9 @@ const Shop = () => {
         const res = await axios.get(API_URL)
         console.log(res.data)
         const data= res.data
+        
         setProductData(data)
+        setIsloading(false)
     }
     fetchData();
 },[])
@@ -25,16 +28,18 @@ const Shop = () => {
    
     
   return (
+    <>
+    {isLoading && <Loader/>}
     <div className={styles.container} > 
     <SearchBar onSearch = {setSearchTerm}/>
        <div className={styles.center}>
 
         <div className={styles.main}>
 
-        {productData.filter((product)=> product.name.toLowerCase().includes(searchTerm.toLowerCase()))
+        {productData && productData?.filter((product)=> product.name.toLowerCase().includes(searchTerm.toLowerCase()))
         
         .map((item) => (
-              <CarouselItem
+              <ShopItems
               name={item.name}
               price={item.price}
               imageURL={item.imageURL}
@@ -44,10 +49,11 @@ const Shop = () => {
         ))
       
 }
-</div>
+        </div>
 
-</div>
+      </div>
     </div>
+    </>
   )
 }
 
