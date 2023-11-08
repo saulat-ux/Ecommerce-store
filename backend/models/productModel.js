@@ -14,23 +14,23 @@ const productSchema = mongoose.Schema({
     },
     category: {
         type: String,
-        required: [true, "Please add a category"],
+        // required: [true, "Please add a category"],
         trim: true,
     },
    brand: {
         type: String,
-        required: [true, "Please add a brand"],
+        // required: [true, "Please add a brand"],
         trim: true,
     },
     color: {
         type: String,
-        required: [true, "Please add a color"],
+        // required: [true, "Please add a color"],
         trim: true,
         default: "As seen"
     },
     quantity: {
         type: Number,
-        required: [true, "Please add a quantity"],
+        // required: [true, "Please add a quantity"],
         trim: true,
     },
     sold: {
@@ -43,7 +43,7 @@ const productSchema = mongoose.Schema({
         trim: true,
     },
     price: {
-        type: Number,
+        type: String,
         required: [true, "Please add a price"],
         trim: true,
     },
@@ -53,8 +53,9 @@ const productSchema = mongoose.Schema({
         trim: true,
     },
     
-    image: {
-        type:[String],
+    imageURL: {
+        type: String,
+       
     },
     rating: {
         type: [Object],

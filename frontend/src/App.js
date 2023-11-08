@@ -8,6 +8,8 @@ import FooterLinks from "./components/footer/FooterLinks";
 import axios from "axios";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"
+import ProductDetail from "./pages/productDetail/ProductDetail";
+import Shop from "./pages/shop/Shop";
 
 
 
@@ -23,6 +25,11 @@ const App = () => {
         <Route path="/" element= {<Home/>}/>
         <Route path="/login" element= {<Login/>}/>
         <Route path="/register" element= {<Register/>}/>
+        <Route path="/product-details/:id" element= {<ProductDetail/>}/>
+        <Route path="/shop" element= {<Shop/>}/>
+
+
+
 
             
       </Routes>

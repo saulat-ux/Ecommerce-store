@@ -7,16 +7,15 @@ const createProduct = asyncHandler(async(req, res) => {
     sku,category,
     brand,
     quantity,
-
     description,
-    image,
+    imageURL,
     regularPrice,
     price,
     color,
 
    } = req.body
 
-   if(!name || !category ||!brand || !quantity ||!description ){
+   if(!name ||!description ){
     res.status(400)
     throw new Error("Please fill in all the fields")
    }
@@ -28,8 +27,8 @@ const product = await Product.create({
     category,
     brand,
     quantity,
-    description,
-    
+    description, 
+    imageURL,
     regularPrice,
     price,
     color,
@@ -72,7 +71,7 @@ res.status(201).json(product)
             brand,
             quantity,
             description,
-            image,
+            imageURL,
             regularPrice,
             price,
             color,
@@ -92,7 +91,7 @@ res.status(201).json(product)
             brand,
             quantity,
             description,
-            image,
+            imageURL,
             regularPrice,
             price,
             color,

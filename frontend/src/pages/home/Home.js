@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Slider from '../../components/slider/Slider'
 import HomeInfoBox from './HomeInfoBox'
 import './home.scss'
-import { productData } from '../../components/carusel/data'
+// import { productData } from '../../components/carusel/data'
 import CarouselItem from '../../components/carusel/CarouselItem';
 import ProductCarousels from '../../components/carusel/Carousel';
 import ProductCategory from './ProductCategory';
+import axios from 'axios';
+import { API_URL } from '../../redux/features/prod/productService';
 
 
 const PageHeading = ({heading, btnText}) => {
@@ -20,20 +22,41 @@ const PageHeading = ({heading, btnText}) => {
   )
 }
 
+
+
+
 const Home = () => {
-  const productss = productData.map((item) => (
+  const [productData, setProductData] = useState([])
+
+  useEffect(() => {
+    const fetchData = async() => {
+      const res = await axios.get(API_URL)
+      const data= res.data
+      console.log(data)
+      setProductData(data)
+    }
+    fetchData();
+  },[])
+  // part under construction
+
+ const productss = productData && productData?.map((item) => (
     <div key={item.id}>
       <CarouselItem 
       name={item.name}
-      url = {item.imageurl}
+      imageURL = {item.imageURL}
       price = {item.price}
       description={item.description}
+      id={item._id}
+      
       />
     </div>
   ))
 
-  return (
-   <>
+  return  (
+
+   
+   
+    <>
     <Slider/>
     <section>
       <div className="container">
@@ -57,9 +80,6 @@ const Home = () => {
         <ProductCarousels products ={productss}/>
       </div>
     </section>
-    
-
-    
    </>
   )
 }
