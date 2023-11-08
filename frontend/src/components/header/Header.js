@@ -22,21 +22,29 @@ const activeLink = ({ isActive }) => (isActive ? `${styles.active}` : "");
 
 const Header = () => {
 
-// getting cart data
+  // getting cart data
   const [cartData, setCartData] = useState([])
 
 
   useEffect(() => {
     const fetchData = async() => {
-      const res = await axios.get(API_URL)
-      console.log(res.data)
-      const data= res.data
-      
-      setCartData(data)
+      try {
+        const res = await axios.get(API_URL)
+        console.log(res.data)
+        console.log('it is still running')
+        const data= res.data
+        
+        setCartData(data)
+      } catch (error) {
+        console.log(error)
+    }
+    
     
   }
   fetchData();
-},[])
+  },[])
+    
+
 
       const len = cartData.length
 

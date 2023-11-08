@@ -31,6 +31,7 @@ const ShopItems = ({id,imageURL,price,name}) => {
   useEffect(() => {
     if(isSuccess) {
         navigate("/shop")
+        console.log('it is still running ')
     }
     dispatch(RESET_CART())
 },[isSuccess, dispatch, navigate])

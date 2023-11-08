@@ -4,57 +4,51 @@ import axios from 'axios';
 import { API_URL } from '../../redux/features/cart/cartService';
 import {RiDeleteBin5Fill} from "react-icons/ri"
 import { useDispatch, useSelector } from 'react-redux';
-import { RESET_CART } from '../../redux/features/cart/cartSlice'; 
-
-
-
-
-
-
+import { RESET_CART, deleteProductFromCart } from '../../redux/features/cart/cartSlice'; 
+import Loader from '../../components/loader/Loader';
+import { Link } from 'react-router-dom';
+import { FaShoppingCart } from 'react-icons/fa';
 
 const Cart = () => {
+
   const dispatch = useDispatch()
 
   const [isLoading, setIsloading] = useState(true)
   const [cartData, setCartData] = useState([])
   const { counter} = useSelector((state) => state.cart)
-
-
-
-  useEffect(() => {
-    const fetchData = async() => {
+  
+ useEffect(() => {
+  const fetchData = async() => {
+    try {
       const res = await axios.get(API_URL)
-      console.log(res.data)
+    
       const data= res.data
-      
+      console.log(data)
       setCartData(data)
       setIsloading(false)
-  }
-  fetchData();
-},[])
-
-useEffect(() => {
-
-  dispatch(RESET_CART())
-},[ dispatch, counter])
-
-const len = cartData.length
-console.log(len)
-
-  const handleDelete = (id) => {
-   
-      const deleteProduct = async() => {
-        const res = await axios.post(API_URL + id)
-        console.log(res)
-        setIsloading(false)
+    } catch (error) {
+      console.log('could not fetch data' + error)
     }
-    deleteProduct();
+}
 
+fetchData();
+ },[])
+    
+  
+
+
+
+  const handleDelete = async (id) => {
+    await dispatch(deleteProductFromCart(id))
+    const res = await axios.get(API_URL);
+    const updatedData = res.data;
+    setCartData(updatedData);
   }
 
   return (
    <section className='container'>
     <div className={styles.table}>
+      {isLoading && <Loader/>}
       <h2>Shoping Cart</h2>
       <table>
         <thead>
@@ -79,10 +73,10 @@ console.log(len)
             </th>
           </tr>
         </thead>
-        { cartData?.map((item) => (
-             <tbody>
+        { cartData?.map((item, index) => (
+             <tbody key={index}>
              <tr>
-               <td>{counter}</td>
+               <td>{index+1}</td>
                <td>
                  <p>{item.name}</p>
                  <img src={item.imageURL} alt="product image" width={50} />

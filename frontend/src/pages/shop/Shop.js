@@ -16,9 +16,10 @@ const Shop = () => {
     useEffect(() => {
       const fetchData = async() => {
         const res = await axios.get(API_URL)
-        console.log(res.data)
+        
         const data= res.data
         
+        console.log('it is still running ')
         setProductData(data)
         setIsloading(false)
     }
