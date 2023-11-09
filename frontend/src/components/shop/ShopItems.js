@@ -40,7 +40,7 @@ const ShopItems = ({id,imageURL,price,name}) => {
       {/* bring the mongo-db id here */}
       <Link to={`/product-details/${id}`}>
         <img className='product--image' src={imageURL} alt="product" />
-        <p className='price'>{`${price}`}</p>
+        <p className='price'>${price}</p>
         <h4>{shortenText(name, 18)}</h4>
        </Link>
      

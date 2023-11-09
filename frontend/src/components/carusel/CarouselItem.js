@@ -3,6 +3,7 @@ import "./caruosel.scss"
 import { Link, useNavigate } from 'react-router-dom';
 import { shortenText } from '../../utils';
 import { useDispatch, useSelector } from 'react-redux';
+import { productData } from './data';
 import { RESET_PROD ,sendProduct } from '../../redux/features/prod/productSlice';
 import { RESET_CART, sendProductToCart } from '../../redux/features/cart/cartSlice';
 

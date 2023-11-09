@@ -10,12 +10,13 @@ import { Link } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa';
 
 const Cart = () => {
+  const [totalPrice , setTotalPrice] = useState('')
 
   const dispatch = useDispatch()
 
   const [isLoading, setIsloading] = useState(true)
   const [cartData, setCartData] = useState([])
-  const { counter} = useSelector((state) => state.cart)
+
   
  useEffect(() => {
   const fetchData = async() => {
@@ -26,13 +27,16 @@ const Cart = () => {
       console.log(data)
       setCartData(data)
       setIsloading(false)
+
+      const total = data.reduce((acc,item) => acc +item.price , 0);
+      setTotalPrice(total)
     } catch (error) {
       console.log('could not fetch data' + error)
     }
 }
 
 fetchData();
- },[])
+ },[cartData])
     
   
 
@@ -78,8 +82,8 @@ fetchData();
              <tr>
                <td>{index+1}</td>
                <td>
-                 <p>{item.name}</p>
-                 <img src={item.imageURL} alt="product image" width={50} />
+                 <p className={styles.p}>{item.name}</p>
+                 <img className={styles.img} src={item.imageURL} alt="product image" width={50} />
                </td>
                <td>{item.price}</td>
                <td>1</td>
@@ -96,6 +100,64 @@ fetchData();
        
       }
       </table>
+    </div>
+    <div className={styles.horizontal}></div>
+    <div className={styles.underCart}>
+      <div>
+        <button>Clear cart</button>
+
+      </div>
+        <div className='cart-items'>
+        <Link to='/shop'>
+          <button>
+         Continue Shoping 
+
+          </button>
+        </Link>
+        <div className='item-sections'>
+        <h4>cart items(s):3</h4>
+        <div className={styles.subTotal}>
+        <h3>Subtotal:</h3>
+        {/* add the total count */}
+        <h3>${totalPrice}</h3>
+        </div>
+
+    <div className={styles.horizontal}></div>
+        <p>Please choose a payment method</p>
+        <form>
+
+          <div className={styles.lable}> 
+        <label>
+          <input type="radio" />
+          <span className={styles.span}>Paypal</span>
+        </label>
+        </div>
+
+        <div className={styles.lable}> 
+        <label>
+          <input type="radio" />
+          <span className={styles.span}>Flutterwave</span>
+        </label>
+        </div>
+
+        <div className={styles.lable}> 
+        <label>
+          <input type="radio" />
+          <span className={styles.span}>Stripe</span>
+        </label>
+        </div>
+
+        <div className={styles.lable}> 
+        <label>
+          <input type="radio" />
+          <span className={styles.span}>Wallet</span>
+        </label>
+        </div>
+
+        <button className='theBtn'>checkout</button>
+        </form>
+        </div>
+        </div>
     </div>
    </section>
   )

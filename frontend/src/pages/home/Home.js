@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Slider from '../../components/slider/Slider'
 import HomeInfoBox from './HomeInfoBox'
 import './home.scss'
-// import { productData } from '../../components/carusel/data'
+import { productData } from '../../components/carusel/data'
 import CarouselItem from '../../components/carusel/CarouselItem';
 import ProductCarousels from '../../components/carusel/Carousel';
 import ProductCategory from './ProductCategory';
@@ -26,17 +26,17 @@ const PageHeading = ({heading, btnText}) => {
 
 
 const Home = () => {
-  const [productData, setProductData] = useState([])
+  // const [productData, setProductData] = useState([])
 
-  useEffect(() => {
-    const fetchData = async() => {
-      const res = await axios.get(API_URL)
-      const data= res.data
-      console.log(data)
-      setProductData(data)
-    }
-    fetchData();
-  },[])
+  // useEffect(() => {
+  //   const fetchData = async() => {
+  //     const res = await axios.get(API_URL)
+  //     const data= res.data
+  //     console.log(data)
+  //     setProductData(data)
+  //   }
+  //   fetchData();
+  // },[])
   // part under construction
 
  const productss = productData && productData?.map((item) => (
