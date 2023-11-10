@@ -24,19 +24,21 @@ const Cart = () => {
       const res = await axios.get(API_URL)
     
       const data= res.data
-      console.log(data)
+      // console.log(data)
       setCartData(data)
       setIsloading(false)
 
       const total = data.reduce((acc,item) => acc +item.price , 0);
-      setTotalPrice(total)
+      const roundedTotal = Math.round(total)
+      setTotalPrice(roundedTotal)
+      // window.scrollTo(0, 0);
     } catch (error) {
       console.log('could not fetch data' + error)
     }
 }
 
 fetchData();
- },[cartData])
+ },[])
     
   
 
@@ -104,12 +106,12 @@ fetchData();
     <div className={styles.horizontal}></div>
     <div className={styles.underCart}>
       <div>
-        <button>Clear cart</button>
+        <button className={styles.theBtn2}>Clear cart</button>
 
       </div>
         <div className='cart-items'>
-        <Link to='/shop'>
-          <button>
+        <Link to='/shop' >
+          <button className={styles.theBtn2}>
          Continue Shoping 
 
           </button>
@@ -154,7 +156,7 @@ fetchData();
         </label>
         </div>
 
-        <button className='theBtn'>checkout</button>
+        <button className={styles.theBtn}>checkout</button>
         </form>
         </div>
         </div>

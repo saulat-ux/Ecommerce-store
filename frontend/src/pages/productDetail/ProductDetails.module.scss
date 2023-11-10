@@ -2,26 +2,58 @@
     
   
 .productDetails{
-        color: blue;
-        border: 1px solid blue;
-        display: flex;
-        gap:5rem;
-        margin-top: 2rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: max-content;
+    // height: 45rem;
+    //   margin: auto 1rem;
+    // margin-right: 5px;
+    text-align: center;
+    // overflow: hidden;
+    display: flex;
+    gap: 22rem;
 }
 
 .arrange{
    
     display: flex;
    justify-content: space-between;
+   margin-right: 1rem;
+   
 }
 .margin{
     margin-left: 8rem;
     
 }
+.btnST{
+    gap: 1rem;
+    display: flex;
+}
+.imageW{
+    width: 300px;
+    max-width:min-content;
+}
+.theimg{
+}
+.ul{
+    font-size: 1.2rem
+}
+
+.theBTN{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    padding: 5px 20px;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+  
+  background: #ff4500;
+  color: #fff;
+}
 .horizontal{
-    width: 100%; /* Adjust the width as needed */
+    width: 50rem; 
     height: 2px; /* Adjust the height as needed */
-    background-color: #000; /* Change the color as needed */
+    background-color: #ccc; /* Change the color as needed */
     margin: 10px 0; /* Add margin for spacing, adjust as needed */
 }
 @media screen and (max-width: 400px) {

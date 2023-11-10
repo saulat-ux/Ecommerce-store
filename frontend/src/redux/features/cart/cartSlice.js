@@ -44,11 +44,11 @@ export const deleteProductFromCart = createAsyncThunk(
 )
 
 // get cart products
-export const getProductsFromCart = createAsyncThunk(
-    "cart/getProductsFromCart",
-    async (userData, thunkAPI) => {
+export const getAllCartProducts = createAsyncThunk(
+    "cart/getAllCartProducts",
+    async ( thunkAPI) => {
         try {
-                return await cartService.getProductsFromCart(userData)
+                return await cartService.getAllCartProducts()
         } catch (error) {
             const message = (
                 error.response && error.response.data && error.response.data.message
@@ -111,16 +111,16 @@ const cartSlice = createSlice({
                 toast.success(action.payload);
             })
 
-            .addCase(getProductsFromCart.pending, (state) => {
+            .addCase(getAllCartProducts.pending, (state) => {
                 state.isLoading = true;
             })
-            .addCase(getProductsFromCart.fulfilled, (state, action) => {
+            .addCase(getAllCartProducts.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.isSuccess = true;
                 state.product = action.payload;
                 toast.success("fetched products from cart successfully");
             })
-            .addCase(getProductsFromCart.rejected, (state, action) => {
+            .addCase(getAllCartProducts.rejected, (state, action) => {
                 state.isLoading = false;
                 state.isError = true;
                 state.message = action.payload;

@@ -22,6 +22,7 @@ const Shop = () => {
         console.log('it is still running ')
         setProductData(data)
         setIsloading(false)
+        window.scrollTo(0, 0);
     }
     fetchData();
 },[])
@@ -31,10 +32,12 @@ const Shop = () => {
   return (
     <>
     {isLoading && <Loader/>}
-    <div className={styles.container} > 
-    <SearchBar onSearch = {setSearchTerm}/>
        <div className={styles.center}>
+    <div > 
+    <div className={styles.container}>
+    <SearchBar onSearch = {setSearchTerm}/> 
 
+    </div>
         <div className={styles.main}>
 
         {productData && productData?.filter((product)=> product.name.toLowerCase().includes(searchTerm.toLowerCase()))

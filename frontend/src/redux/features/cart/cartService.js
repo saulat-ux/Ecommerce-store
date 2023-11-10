@@ -21,7 +21,7 @@ const  deleteProductFromCart = async (id) => {
 }
 
 // get all cart products 
-const getAllCartProducts = async(cartData) => {
+const getAllCartProducts = async() => {
   const response = await axios.get(API_URL)
   return response.data
 }
