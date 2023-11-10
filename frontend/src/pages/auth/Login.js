@@ -70,7 +70,7 @@ const Login = () => {
                     <br />
                     <span>
                         <h4> Test Account</h4>
-                    <p>User: testuser@gmail.com</p>
+                    <p>User: john@gmail.com</p>
                     <p>Password: test1234</p>
                     </span>
                 </div>

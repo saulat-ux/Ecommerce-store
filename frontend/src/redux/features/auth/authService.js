@@ -26,10 +26,23 @@ const  logout = async (userData) => {
     return response.data.message
 }
 
+// get user
+const  getUser = async () => {
+    const response = await axios.get(API_URL + "getuser")
+    return response.data.message
+}
+
+// update user
+const  updateUser = async (userData) => {
+    const response = await axios.patch(API_URL + "updateuser", userData)
+    return response.data.message
+}
 const authService = {
     register,
     login,
     logout,
+    getUser,
+    updateUser,
 }
 
 export default authService

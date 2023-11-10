@@ -21,6 +21,7 @@ const Register = () => {
    const dispatch = useDispatch();
    const {isLoading, isLoggedIn , isSuccess} = useSelector((state) => state.auth)
    const navigate = useNavigate();
+   const namer = formData.name;
 
    const handleInputChange= (e) => {
     const {name, value} = e.target
@@ -108,8 +109,8 @@ const Register = () => {
                     <span>
                     <h4> Test Account</h4>
 
-                    <p>User: testuser</p>
-                    <p>Password: test@1234</p>
+                    <p>User: john@gmail.com</p>
+                    <p>Password: test1234</p>
                     </span>
                 </div>
 
@@ -121,6 +122,14 @@ const Register = () => {
         </section>
         </>
     );
+}
+
+export const UserName = () => {
+   const { user } = useSelector((state) => state.auth)
+
+   const username = user?.name || "...";
+
+   return <span style={{color: "#ff7722"}}>Hi, {username} |</span>
 }
 
 export default Register

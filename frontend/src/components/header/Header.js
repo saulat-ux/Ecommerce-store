@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './header.module.scss';
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { FaShoppingCart } from 'react-icons/fa';
+import { FaShoppingCart, FaUserCircle } from 'react-icons/fa';
 import { HiOutlineMenuAlt3 } from 'react-icons/hi';
 import { FaTimes } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
@@ -9,6 +9,7 @@ import { RESET_AUTH, logout } from '../../redux/features/auth/authSlice';
 import ShowOnLogin, { ShowOnLogout } from '../hiddenLink/hiddenLink';
 import { API_URL } from '../../redux/features/cart/cartService';
 import axios from 'axios';
+import { UserName } from '../../pages/auth/Register';
 
 const logo = (
   <div className={styles.logo}>
@@ -115,6 +116,14 @@ const Header = () => {
                 Login
               </NavLink>
               </ShowOnLogout>
+
+              <ShowOnLogin>
+                <NavLink to={"login"} className={activeLink}>
+                  <FaUserCircle size={16} color='#ff7722'/>
+                <UserName/>
+                </NavLink>
+              </ShowOnLogin>
+
               <ShowOnLogout>
               <NavLink to={"register"} className={activeLink}>
                 Register
