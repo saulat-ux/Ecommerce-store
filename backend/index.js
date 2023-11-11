@@ -17,9 +17,17 @@ const app = express()
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({extended: false}));
+// app.use(
+//     cors({
+//         origin: ["http://localhost:3000"],
+//         credentials: true,
+    
+//     })
+// )
+
 app.use(
     cors({
-        origin: ["http://localhost:3000"],
+        origin: ["https://shoplikeelite-store-saulat-do52frx64-saulats-projects.vercel.app"],
         credentials: true,
     
     })
