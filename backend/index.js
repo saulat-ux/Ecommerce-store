@@ -13,11 +13,6 @@ const errorHandler = require("./middleware/errorMiddleware");
 
 const app = express()
 
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    next();
-  });
-
 // middlewares
 app.use(express.json());
 app.use(cookieParser());
@@ -34,8 +29,8 @@ app.use(express.urlencoded({extended: false}));
 
 app.use(
     cors({
-        origin: "https://shoplikeelite-store-saulat-do52frx64-saulats-projects.vercel.app",
-        methods: ["POST" , "GET"],
+        origin: ["https://shoplikeelite-store-saulat-do52frx64-saulats-projects.vercel.app"],
+       
         credentials: true,
     
     })
