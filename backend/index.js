@@ -22,15 +22,21 @@ app.use(express.urlencoded({extended: false}));
     
 //     })
 // )
-app.use(
-    cors({
-        origin: ["https://shoplikeelite-store-saulat.vercel.app/"],
+// app.use(
+//     cors({
+//         origin: ["https://shoplikeelite-store-saulat.vercel.app/"],
        
-        credentials: true
+//         credentials: true
     
-    })
-)
-
+//     })
+// )
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', 'https://shoplikeelite-store-saulat-do52frx64-saulats-projects.vercel.app');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.header('Access-Control-Allow-Credentials', true);
+    next();
+});
 
 
 
