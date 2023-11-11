@@ -9,14 +9,7 @@ const productRouter = require("./routes/productRoutes");
 const cartRouter = require("./routes/cartRoutes");
 
 const errorHandler = require("./middleware/errorMiddleware");
-
-
 const app = express()
-
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    next();
-  });
 
 // middlewares
 app.use(express.json());
@@ -29,9 +22,6 @@ app.use(express.urlencoded({extended: false}));
     
 //     })
 // )
-
-
-
 app.use(
     cors({
         origin: ["https://shoplikeelite-store-saulat-do52frx64-saulats-projects.vercel.app"],
