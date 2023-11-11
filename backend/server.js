@@ -33,7 +33,7 @@ app.use("/api/v1/cart", cartRouter )
 
 
 app.get("/", (req,res) => {
-    res.json("home page..")
+    res.send("home page..")
 })
 
 const Port  = process.env.Port || 5000
