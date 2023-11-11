@@ -24,7 +24,7 @@ app.use(express.urlencoded({extended: false}));
 // )
 app.use(
     cors({
-        origin: ["https://shoplikeelite-store-saulat.vercel.app/"],
+        origin: ["https://ecommerce-store-sand-nine.vercel.app"],
         credentials:true,
     
     })
