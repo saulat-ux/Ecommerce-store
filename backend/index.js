@@ -24,7 +24,7 @@ app.use(express.urlencoded({extended: false}));
 // )
 app.use(
     cors({
-        origin: ["https://ecommerce-store-sand-nine.vercel.app"],
+        origin: ["https://ecommerce-store-saulat-8bw2eypi1-saulats-projects.vercel.app"],
         credentials:true,
     
     })
