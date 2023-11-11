@@ -32,28 +32,17 @@ app.use(express.urlencoded({extended: false}));
 
 
 
-// app.use(
-//     cors({
-//         origin: ["https://shoplikeelite-store-saulat-do52frx64-saulats-projects.vercel.app"],
-//         methods: ["POST" , "GET"],
-//         credentials: true,
+app.use(
+    cors({
+        origin: ["https://shoplikeelite-store-saulat-do52frx64-saulats-projects.vercel.app"],
+        methods: ["POST" , "GET"],
+        credentials: true,
     
-//     })
-// )
+    })
+)
 
 
-app.get('/', (req, res) => {
-    request(
-      { url: 'https://shoplikeelite-store-saulat-do52frx64-saulats-projects.vercel.app' },
-      (error, response, body) => {
-        if (error || response.statusCode !== 200) {
-          return res.status(500).json({ type: 'error', message: err.message });
-        }
-  
-        res.json(JSON.parse(body));
-      }
-    )
-  });
+
 
 
 // router
