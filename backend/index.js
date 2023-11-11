@@ -28,6 +28,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(
     cors({
         origin: ["https://shoplikeelite-store-saulat-do52frx64-saulats-projects.vercel.app"],
+        methods: ["POST" , "GET"],
         credentials: true,
     
     })
