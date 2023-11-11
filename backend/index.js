@@ -25,6 +25,8 @@ app.use(express.urlencoded({extended: false}));
 //     })
 // )
 
+app.options('*', cors());
+
 app.use(
     cors({
         origin: ["https://shoplikeelite-store-saulat-do52frx64-saulats-projects.vercel.app"],
