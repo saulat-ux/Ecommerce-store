@@ -41,7 +41,17 @@ const Port  = process.env.Port || 5000
 // error middleware
 app.use(errorHandler)
 
-mongoose.connect(process.env.MONGO_URI)
+// mongoose.connect(process.env.MONGO_URI)
+//     .then(() => {
+//         app.listen(Port, () => {
+//             console.log(`server is running on port ${Port}`)
+//         })
+//     }).catch((error) => {
+//         console.log(error)
+//     })
+
+
+    mongoose.connect('mongodb+srv://saulatzubair:ALS4W4Y8g14JRpwG@cluster-store.ls1d7eq.mongodb.net/shop-like-elite?retryWrites=true&w=majority')
     .then(() => {
         app.listen(Port, () => {
             console.log(`server is running on port ${Port}`)
