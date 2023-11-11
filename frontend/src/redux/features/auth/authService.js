@@ -2,7 +2,7 @@ import axios from "axios";
 
 // const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
-const BACKEND_URL = 'http://shoplikeelite-store.vercel.app'
+const BACKEND_URL = 'https://shoplikeelite-store.vercel.app'
 
 export const API_URL = `${BACKEND_URL}/api/v1/users/`;
 
