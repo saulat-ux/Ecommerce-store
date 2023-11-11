@@ -31,7 +31,7 @@ app.use(
     cors({
         origin: ["https://shoplikeelite-store-saulat-do52frx64-saulats-projects.vercel.app"],
        
-        credentials: true,
+        credentials: true
     
     })
 )
