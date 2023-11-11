@@ -12,7 +12,7 @@
             "dest": "/",
             "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
             "headers": {
-                "Access-Control-Allow-Origin": "*"
+                "Access-Control-Allow-Origin": "https://shoplikeelite-store-saulat-do52frx64-saulats-projects.vercel.app"
             }
         }
     ]
