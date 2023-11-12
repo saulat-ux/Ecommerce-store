@@ -23,6 +23,8 @@ app.use(express.urlencoded({extended: false}));
 //     })
 // )
 
+// adding this comment
+
 app.use(
     cors({
         origin: ["https://shop-saulat-ux.vercel.app"],
