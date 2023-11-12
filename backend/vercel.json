@@ -9,7 +9,12 @@
         {
 
             "src":"/(.*)",
-            "dest": "/"
+            "dest": "/",
+            "methods" : ["GET", "PUT", "DELETE", "POST", "PATCH"]
+            "headers": {
+            "Access-Control-Allow-Origin": "https://ecommerce-store-saulat.vercel.app/",
+                
+            }
            
         }
     ]
