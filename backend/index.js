@@ -31,7 +31,7 @@ app.use(
         origin: ["https://shop-saulat-ux.vercel.app"],
         methods: ["GET", "PUT", "DELETE", "POST", "PATCH"],
         credentials:true,
-        optionsSuccessStatus: 204,
+        allowedHeaders: 'Content-Type',
     
     })
 )
