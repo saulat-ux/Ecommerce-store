@@ -1,12 +1,12 @@
 import axios from "axios";
 
 
-// const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 
 
 
-export const API_URL = 'https://ecommerce-store-delta-three.vercel.app/api/v1/cart/';
+export const API_URL = `https://ecommerce-store-saulat-ux.vercel.app/api/v1/cart/`;
 
 console.log(API_URL)
 
