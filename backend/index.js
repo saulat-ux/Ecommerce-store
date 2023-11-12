@@ -11,6 +11,20 @@ const cartRouter = require("./routes/cartRoutes");
 const errorHandler = require("./middleware/errorMiddleware");
 const app = express()
 
+
+app.use((req, res, next) => {
+    // Handle preflight request
+    if (req.method === 'OPTIONS') {
+      res.setHeader('Access-Control-Allow-Origin', 'https://ecommerce-store-tasleem-frontend.vercel.app');
+      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
+      res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+      res.setHeader('Access-Control-Allow-Credentials', 'true');
+      res.status(200).end();
+      return;
+    }
+    next();
+  });
+
 // middlewares
 app.use(express.json());
 app.use(cookieParser());

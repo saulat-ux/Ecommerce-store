@@ -28,7 +28,7 @@ const  login = async (userData) => {
 }
 
 // logout user
-const  logout = async (userData) => {
+const  logout = async () => {
     const response = await axios.get(API_URL + "logout",{
         withCredentials: false,
     })
