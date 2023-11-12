@@ -13,6 +13,7 @@ console.log(API_URL)
 // send product to backend
 const  sendProductToCart = async (cartData) => {
   const response = await axios.post(API_URL, cartData )
+  console.log(response.data)
  return response.data
 
 }

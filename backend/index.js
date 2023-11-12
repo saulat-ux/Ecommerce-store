@@ -28,7 +28,7 @@ app.use(express.urlencoded({extended: false}));
 
 app.use(
     cors({
-        origin: ["https://shop-saulat-ux.vercel.app"],
+        origin: ["ecommerce-store-tasleem.vercel.app"],
         methods: ["GET", "POST", "DELETE"],
         credentials:true,
         allowedHeaders: 'Content-Type',
@@ -38,7 +38,7 @@ app.use(
 
 
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://ecommerce-store-saulat.vercel.app/');
+    res.header('Access-Control-Allow-Origin', 'ecommerce-store-tasleem.vercel.app');
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     res.header('Access-Control-Allow-Credentials', true);

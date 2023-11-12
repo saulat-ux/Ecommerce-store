@@ -12,7 +12,7 @@
             "dest": "/",
             "methods" : ["GET", "PUT", "DELETE", "POST", "PATCH"],
             "headers": {
-            "Access-Control-Allow-Origin": "https://shop-saulat-ux.vercel.app",
+            "Access-Control-Allow-Origin": "ecommerce-store-tasleem.vercel.app",
             "Access-Control-Allow-Methods": ["GET", "PUT", "DELETE", "POST", "PATCH"],
             "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
                 
