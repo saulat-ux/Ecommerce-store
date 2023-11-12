@@ -18,25 +18,25 @@ const CarouselItem = ({imageURL,name,price, description,id}) => {
 
 
 
-  const handleClick = async () => {
-    const productData = {
-      name,
-      price,
-      imageURL,
-      description,
-    }
-    await dispatch(sendProduct(productData))
-  }
-
   // const handleClick = async () => {
-  //   const cartData = {
-  //     imageURL,
+  //   const productData = {
   //     name,
   //     price,
+  //     imageURL,
+  //     description,
   //   }
-  //   await dispatch(sendProductToCart(cartData))
-
+  //   await dispatch(sendProduct(productData))
   // }
+
+  const handleClick = async () => {
+    const cartData = {
+      imageURL,
+      name,
+      price,
+    }
+    await dispatch(sendProductToCart(cartData))
+
+  }
 
   useEffect(() => {
     if(isSuccess) {
