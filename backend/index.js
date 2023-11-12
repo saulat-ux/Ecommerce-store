@@ -25,7 +25,7 @@ app.use(express.urlencoded({extended: false}));
 
 app.use(
     cors({
-        origin: ["https://ecommerce-store-delta-three.vercel.app/"],
+        origin: ["https://ecommerce-store-delta-three.vercel.app"],
         credentials:true,
     
     })
