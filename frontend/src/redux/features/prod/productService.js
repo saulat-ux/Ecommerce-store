@@ -5,7 +5,7 @@ import axios from "axios";
 
 
 
-export const API_URL = 'https://ecommerce-store-sand-nine.vercel.app/api/v1/products/';
+export const API_URL = 'https://ecommerce-store-delta-three.vercel.app/api/v1/products/';
 
 console.log(API_URL)
 
