@@ -45,7 +45,13 @@ app.use(
 //     next();
 // });
 
+app.options('/api/v1/cart', cors());
 
+// Handling OPTIONS requests for /api/v1/register
+app.options('/api/v1/userregister', cors());
+
+// Handling OPTIONS requests for /api/v1/login
+app.options('/api/v1/userlogin', cors());
 
 
 // router
