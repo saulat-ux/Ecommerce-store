@@ -5,8 +5,9 @@ import { shortenText } from '../../utils';
 import { useDispatch, useSelector } from 'react-redux';
 import { RESET_PROD ,sendProduct } from '../../redux/features/prod/productSlice';
 import { RESET_CART, sendProductToCart } from '../../redux/features/cart/cartSlice';
-import { API_URL } from '../../redux/features/prod/productService';
+import { API_URL } from '../../redux/features/cart/cartService';
 import axios from 'axios';
+
 
 // this is the frontend
 
@@ -24,7 +25,8 @@ const ShopItems = ({id,imageURL,price,name}) => {
       imageURL,price,name
     }
      
-    await dispatch(sendProductToCart(cartData))
+    // await dispatch(sendProductToCart(cartData))
+    await axios.post(API_URL , cartData)
 
   }
 
