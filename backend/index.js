@@ -28,24 +28,13 @@ app.use(express.urlencoded({extended: false}));
 
 app.use(
     cors({
-        origin: ["https://ecommerce-store-tasleem-frontend.vercel.app"],
+        origin: ["https://ecommerce-store-tasleem-frontend.vercel.app/"],
         methods: ["GET", "POST", "DELETE",'OPTIONS'],
         credentials:true,
         allowedHeaders: 'Content-Type',
     
     })
 )
-
-
-app.options('/api/v1/cart', cors());
-
-
-app.options('/api/v1/users', cors());
-
-
-app.options('/api/v1/products', cors());
-
-
 // router
 app.use("/api/v1/users", userRoute )
 app.use("/api/v1/products", productRouter )
