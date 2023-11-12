@@ -29,7 +29,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(
     cors({
         origin: ["https://ecommerce-store-tasleem-frontend.vercel.app"],
-        methods: ["GET", "POST", "DELETE"],
+        methods: ["GET", "POST", "DELETE",'OPTIONS'],
         credentials:true,
         allowedHeaders: 'Content-Type',
     
@@ -39,9 +39,11 @@ app.use(
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', 'https://ecommerce-store-tasleem-frontend.vercel.app');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE ,OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     res.header('Access-Control-Allow-Credentials', true);
+    res.header('Access-Control-Max-Age', 86400);
+
     next();
 });
 
