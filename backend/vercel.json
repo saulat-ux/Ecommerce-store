@@ -13,7 +13,7 @@
             "methods" : ["GET", "PUT", "DELETE", "POST", "PATCH"],
             "headers": {
             "Access-Control-Allow-Origin": "https://shop-saulat-ux.vercel.app",
-            "Access-Control-Allow-Methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+            "Access-Control-Allow-Methods": ["GET", "PUT", "DELETE", "POST", "PATCH"],
             "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
                 
             }

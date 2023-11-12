@@ -12,7 +12,11 @@ console.log(API_URL)
 
 // send product to backend
 const  sendProductToCart = async (cartData) => {
-  const response = await axios.post(API_URL, cartData)
+  const response = await axios.post(API_URL, cartData , {
+    headers:{
+      'Content-Type': 'application/json',
+    }
+  })
  return response.data
 
 }
