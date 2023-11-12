@@ -26,6 +26,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(
     cors({
         origin: ["https://shop-saulat-ux.vercel.app"],
+        methods: ["GET", "PUT", "DELETE", "POST", "PATCH"],
         credentials:true,
     
     })
