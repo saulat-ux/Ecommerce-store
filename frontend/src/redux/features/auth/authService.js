@@ -15,19 +15,23 @@ console.log(API_URL)
 // this will send the userdata to the backend as part of the req.body
 const  register = async (userData) => {
     const response = await axios.post(API_URL + "register" , userData, {
-        withCredentials: true,
+        withCredentials: false,
     })
     return response.data
 }
 // login user
 const  login = async (userData) => {
-    const response = await axios.post(API_URL + "login" , userData)
+    const response = await axios.post(API_URL + "login" , userData, {
+        withCredentials: false,
+    })
     return response.data
 }
 
 // logout user
 const  logout = async (userData) => {
-    const response = await axios.get(API_URL + "logout")
+    const response = await axios.get(API_URL + "logout",{
+        withCredentials: false,
+    })
     return response.data.message
 }
 
