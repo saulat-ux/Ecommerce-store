@@ -12,8 +12,7 @@
             "dest": "/",
             "methods" : ["GET", "PUT", "DELETE", "POST", "PATCH"],
             "headers": {
-            "Access-Control-Allow-Origin": "https://ecommerce-store-tasleem.vercel.app",
-            "Access-Control-Allow-Methods": ["GET", "PUT", "DELETE", "POST", "PATCH"],
+            "Access-Control-Allow-Origin": "https://ecommerce-store-tasleem-frontend.vercel.app",
             "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
                 
             }
