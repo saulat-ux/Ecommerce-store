@@ -29,7 +29,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(
     cors({
         origin: ["https://shop-saulat-ux.vercel.app"],
-        methods: ["GET", "PUT", "DELETE", "POST", "PATCH"],
+        methods: ["GET", "POST", "DELETE"],
         credentials:true,
         allowedHeaders: 'Content-Type',
     
@@ -48,10 +48,10 @@ app.use(
 app.options('/api/v1/cart', cors());
 
 // Handling OPTIONS requests for /api/v1/register
-app.options('/api/v1/userregister', cors());
+app.options('/api/v1/users', cors());
 
 // Handling OPTIONS requests for /api/v1/login
-app.options('/api/v1/userlogin', cors());
+app.options('/api/v1/products', cors());
 
 
 // router
